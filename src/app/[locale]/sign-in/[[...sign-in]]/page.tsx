@@ -12,6 +12,7 @@ export default async function SignInPage({
   return (
     <div className="flex flex-1 items-center justify-center px-4 py-16 sm:py-24">
       <SignIn
+        key={locale}
         routing="path"
         path={`/${locale}/sign-in`}
         signUpUrl={`/${locale}/sign-up`}

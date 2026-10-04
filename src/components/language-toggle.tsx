@@ -30,6 +30,10 @@ export function LanguageToggle({ locale }: { locale: string }) {
   return (
     <Link
       href={fullHref}
+      onClick={() => {
+        document.documentElement.lang = targetLocale;
+        document.documentElement.dir = targetLocale === "ar" ? "rtl" : "ltr";
+      }}
       className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm hover:border-teal-500 hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-teal-600 transition-all"
       id="language-toggle"
       aria-label={isAr ? "Switch language to English" : "التبديل إلى اللغة العربية"}
