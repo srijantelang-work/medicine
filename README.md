@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nabd (نبض) — Clinical Intake AI
+
+A bilingual (English / Arabic) medical AI landing page with early-access waitlist, Clerk authentication, and local PostgreSQL user synchronization.
+
+## Tech Stack
+- **Framework**: Next.js 16 (App Router) + TypeScript
+- **Styling**: Tailwind CSS v4 (built with CSS logical properties for native RTL)
+- **Internationalization**: `next-intl` (`/en` and `/ar` routes)
+- **Authentication**: Clerk (with Arabic localization `@clerk/localizations`)
+- **Database & ORM**: PostgreSQL 16 (Docker) + Drizzle ORM + Zod
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Environment Variables
+Create `.env.local` (or copy `.env.example`):
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+CLERK_SECRET_KEY=sk_test_...
+DATABASE_URL=postgresql://nabd:nabd_local@localhost:5433/nabd
+```
+*(Clerk sign-in, sign-up, and redirection paths are handled dynamically in code per active locale, so static URL environment variables are not required).*
 
+### 2. Start PostgreSQL
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker compose up -d
+```
+*Note: Bound to host port `5433` to prevent collisions with existing local PostgreSQL instances.*
+
+### 3. Apply Database Migrations
+```bash
+npm run db:migrate
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Verification & Testing
 
-## Learn More
+Run the automated smoke test suite to verify database connectivity, schema tables, and endpoint health:
+```bash
+npm run smoke
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run code quality and type check:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Route Summary
+| Route | Access | Description |
+|---|---|---|
+| `/[locale]` | Public | Bilingual landing page with interactive clinical intake demo |
+| `/[locale]/sign-in` | Public | Clerk localized sign-in |
+| `/[locale]/sign-up` | Public | Clerk localized sign-up |
+| `/[locale]/account` | Protected | Displays clinician data read directly from our local PostgreSQL |
+| `POST /api/waitlist` | Public | Zod-validated waitlist submission with duplicate email handling |
+| `GET /api/user` | Protected | Authenticated user DB record sync endpoint |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Architecture Highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Lazy Upsert Pattern**: Rather than managing webhook endpoints (e.g. Svix tunnels in local dev), clinician user records are lazily synchronized into our local PostgreSQL `users` table on first authenticated request. Subsequent reads hit local PostgreSQL directly without duplicate writes or external Clerk API calls.
+- **Genuine Bidirectional (RTL) Support**: Layout is styled using CSS logical properties (`ms-`, `me-`, `ps-`, `pe-`, `text-start`, `start-0`). Directional icons mirror automatically via `rtl:-scale-x-100`, and mixed-direction strings (emails, IDs, dates) use `<bdi>` and `<FormattedDate>`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## What I'd Do Differently in Production
+
+1. **Hybrid Webhook Sync**: Set up a background system to catch updates from Clerk (like when someone deletes an account or changes their email on the Clerk website) and automatically update your own database.
+2. **Audit Logging & Encryption**: Encrypt sensitive patient data and maintain a strict audit log of all access, in line with privacy regulations such as HIPAA and GDPR.
+3. **Multi-Tenant Organizations**: Implement Clerk Organizations to logically separate and manage users from different hospitals or clinics, ensuring data privacy and compliance.
+4. **Native Medical Review**: Engage native Arabic-speaking healthcare professionals to review and refine all medical content, ensuring cultural relevance and clinical accuracy.
