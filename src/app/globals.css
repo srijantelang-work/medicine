@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
+/* ─── Nabd Design Tokens ─── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary — Deep Teal */
+  --color-teal-50: #eefbf7;
+  --color-teal-100: #d5f5ec;
+  --color-teal-200: #aeeadb;
+  --color-teal-300: #79d8c4;
+  --color-teal-400: #43bfa8;
+  --color-teal-500: #22a38e;
+  --color-teal-600: #168374;
+  --color-teal-700: #13695e;
+  --color-teal-800: #13544c;
+  --color-teal-900: #0f3f3a;
+  --color-teal-950: #072725;
+
+  /* Accent — Coral */
+  --color-coral-50: #fff4f1;
+  --color-coral-100: #ffe6e0;
+  --color-coral-200: #ffd1c6;
+  --color-coral-300: #ffb09e;
+  --color-coral-400: #ff8166;
+  --color-coral-500: #f85d3e;
+  --color-coral-600: #e5421f;
+  --color-coral-700: #c13416;
+  --color-coral-800: #9f2e16;
+  --color-coral-900: #842c1a;
+  --color-coral-950: #481308;
+
+  /* Neutral — Warm Off-White / Slate */
+  --color-sand-50: #faf9f7;
+  --color-sand-100: #f3f1ec;
+  --color-sand-200: #e6e2d9;
+  --color-sand-300: #d4cec0;
+  --color-sand-400: #bfb6a3;
+  --color-sand-500: #a79c87;
+  --color-sand-600: #938672;
+  --color-sand-700: #7b6f5f;
+  --color-sand-800: #655c51;
+  --color-sand-900: #534d44;
+  --color-sand-950: #2c2824;
+
+  /* Semantic */
+  --background: var(--color-sand-50);
+  --foreground: var(--color-sand-950);
+  --surface: #ffffff;
+  --surface-hover: var(--color-sand-100);
+  --border: var(--color-sand-200);
+  --muted: var(--color-sand-500);
+  --primary: var(--color-teal-600);
+  --primary-foreground: #ffffff;
+  --accent: var(--color-coral-500);
+  --accent-foreground: #ffffff;
 }
 
+/* ─── Tailwind v4 @theme — expose tokens to utilities ─── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Palette classes: bg-teal-500 etc. */
+  --color-teal-50: var(--color-teal-50);
+  --color-teal-100: var(--color-teal-100);
+  --color-teal-200: var(--color-teal-200);
+  --color-teal-300: var(--color-teal-300);
+  --color-teal-400: var(--color-teal-400);
+  --color-teal-500: var(--color-teal-500);
+  --color-teal-600: var(--color-teal-600);
+  --color-teal-700: var(--color-teal-700);
+  --color-teal-800: var(--color-teal-800);
+  --color-teal-900: var(--color-teal-900);
+  --color-teal-950: var(--color-teal-950);
+
+  --color-coral-50: var(--color-coral-50);
+  --color-coral-100: var(--color-coral-100);
+  --color-coral-200: var(--color-coral-200);
+  --color-coral-300: var(--color-coral-300);
+  --color-coral-400: var(--color-coral-400);
+  --color-coral-500: var(--color-coral-500);
+  --color-coral-600: var(--color-coral-600);
+  --color-coral-700: var(--color-coral-700);
+  --color-coral-800: var(--color-coral-800);
+  --color-coral-900: var(--color-coral-900);
+  --color-coral-950: var(--color-coral-950);
+
+  --color-sand-50: var(--color-sand-50);
+  --color-sand-100: var(--color-sand-100);
+  --color-sand-200: var(--color-sand-200);
+  --color-sand-300: var(--color-sand-300);
+  --color-sand-400: var(--color-sand-400);
+  --color-sand-500: var(--color-sand-500);
+  --color-sand-600: var(--color-sand-600);
+  --color-sand-700: var(--color-sand-700);
+  --color-sand-800: var(--color-sand-800);
+  --color-sand-900: var(--color-sand-900);
+  --color-sand-950: var(--color-sand-950);
+
+  /* Fonts */
+  --font-sans: var(--font-inter), var(--font-ibm-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-ibm-plex-arabic), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base styles ─── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Arabic-specific font override */
+html[lang="ar"] body {
+  font-family: var(--font-arabic);
+}
+
+/* ─── Smooth transitions for interactive elements ─── */
+a,
+button,
+input,
+textarea,
+select {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+/* ─── Focus ring ─── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: var(--color-teal-200);
+  color: var(--color-teal-950);
+}
+
+/* ─── Pulse-line animation (used in logo / hero) ─── */
+@keyframes pulse-line {
+  0%,
+  100% {
+    stroke-dashoffset: 200;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-pulse-line {
+  animation: pulse-line 3s ease-in-out infinite;
+}
+
+/* ─── Fade-in-up for scroll reveals ─── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
 }
