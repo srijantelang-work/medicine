@@ -1,0 +1,152 @@
+{
+  "common": {
+    "brand": "Nabd",
+    "brandArabic": "نبض",
+    "tagline": "AI-powered intake conversations converted to structured clinical summaries.",
+    "language": "Language",
+    "currentLanguage": "English",
+    "switchLanguage": "عربي",
+    "toggleAria": "Switch to Arabic",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "backHome": "Back to Home",
+    "loading": "Loading...",
+    "copyright": "© {year} Nabd Technologies Inc. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "waitlist": "Join Waitlist",
+    "account": "My Account"
+  },
+  "hero": {
+    "badge": "Next-Generation Clinical Intake AI",
+    "title": "Turn patient intake conversations into",
+    "titleHighlight": "clinician-ready summaries",
+    "subtitle": "Nabd conducts empathetic, conversational pre-visit interviews with patients and delivers structured, SOAP-aligned clinical briefs directly to doctors before consultation begins.",
+    "ctaWaitlist": "Join the Waitlist",
+    "ctaDemo": "Explore How It Works",
+    "statAccuracy": "99.4%",
+    "statAccuracyLabel": "Clinical detail capture rate",
+    "statTime": "12 mins",
+    "statTimeLabel": "Saved per patient encounter",
+    "statBilingual": "EN / AR",
+    "statBilingualLabel": "Native dual-language clinical intelligence"
+  },
+  "preview": {
+    "intakeTitle": "Live Intake Simulation",
+    "patientName": "Omar K. (Age 42)",
+    "chiefComplaint": "Substernal chest tightness on exertion",
+    "patientMessage": "I've had this tight burning feeling in the center of my chest since yesterday evening, especially when walking up stairs.",
+    "nabdResponse": "Thank you for sharing, Omar. Does this sensation radiate to your left arm, jaw, or shoulder, and have you noticed any shortness of breath?",
+    "patientReply": "A little bit to my left shoulder. Breathing feels a bit heavier than usual.",
+    "summaryCardTitle": "Synthesized Clinician Brief",
+    "summaryType": "SOAP Format • 60-Second Review",
+    "triageAlert": "Triage Alert: Potential angina — prioritize 12-lead ECG on arrival",
+    "subjectiveTitle": "Subjective History",
+    "subjectiveBody": "42-year-old male presents with acute onset retrosternal chest discomfort radiating to left shoulder, exacerbated by exertion.",
+    "objectiveTitle": "Extracted Review of Systems",
+    "objectiveBody": "Positive for exertional dyspnea. Negative for syncope, diaphoresis, or palpitations.",
+    "statusReady": "Clinician Brief Generated",
+    "statusSynthesizing": "Synthesizing Brief...",
+    "aiAgentName": "Nabd AI",
+    "encryptedDialogue": "Encrypted patient dialogue",
+    "copyToEhr": "Copy to EHR",
+    "copiedToEhr": "Copied to Clipboard",
+    "replay": "Replay Simulation",
+    "liveBadge": "LIVE"
+  },
+  "features": {
+    "badge": "Core Capabilities",
+    "badgePill": "Explore Capabilities",
+    "title": "Engineered for high-throughput clinical workflows",
+    "headlinePrefix": "Empower your clinic: explore ",
+    "headlineHighlight": "all-in-one clinical intake",
+    "subtitle": "Designed alongside healthcare providers to reduce administrative burden and eliminate diagnostic friction.",
+    "ctaTry": "Join Priority Waitlist",
+    "ctaDemo": "View Intake Demo",
+    "verifiedBadge": "VERIFIED",
+    "protocolStandard": "Clinical Protocol Standard",
+    "intake": {
+      "tag": "Adaptive Dialogue",
+      "title": "Conversational Intake",
+      "description": "Patients chat naturally in English or Arabic via mobile web or SMS. Nabd dynamically asks clarifying follow-ups tailored to symptoms without intimidating medical jargon."
+    },
+    "summaries": {
+      "tag": "SOAP Structured",
+      "title": "Clinician-Ready Briefs",
+      "description": "Generates clean Subjective, Objective, Assessment, and Plan notes, red-flagging critical triage alerts before the doctor enters the examination room."
+    },
+    "security": {
+      "tag": "Enterprise Grade",
+      "title": "Clinical Privacy & Compliance",
+      "description": "Encrypted in transit and at rest. Strict zero-retention option for model training, aligning with international patient privacy standards and local healthcare regulations."
+    }
+  },
+  "howItWorks": {
+    "badge": "Workflow",
+    "simpleSteps": "Simple Steps",
+    "mainHeading": "How it works",
+    "workflowQueue": "Clinician Intake Queue",
+    "liveSync": "Live Sync",
+    "readyForDoc": "Ready for Doctor",
+    "title": "Seamless integration from waiting room to exam room",
+    "subtitle": "No documentation friction or delays. Three steps that transform the traditional clinical encounter.",
+    "step1": {
+      "number": "01",
+      "tag": "Pre-Visit Intake",
+      "title": "Patient Chat Before the Visit",
+      "description": "Patients receive a secure link via SMS or QR code in the waiting lounge. Nabd conducts an empathetic, multi-turn clinical dialogue in their preferred language."
+    },
+    "step2": {
+      "number": "02",
+      "tag": "Clinical Synthesis",
+      "title": "Real-Time AI Medical Reasoning",
+      "description": "Our medical reasoning engine analyzes the dialogue, identifies chief complaints, chronologies, medications, and relevant family histories with clinical precision."
+    },
+    "step3": {
+      "number": "03",
+      "tag": "Doctor Review",
+      "title": "60-Second Physician Review",
+      "description": "The physician reviews a synthesized 60-second summary before greeting the patient, saving valuable documentation minutes and improving bedside connection."
+    }
+  },
+  "waitlist": {
+    "badge": "Early Access",
+    "title": "Request early access for your clinic",
+    "subtitle": "We are onboarding forward-thinking hospitals and outpatient clinics. Reserve your spot today to transform your clinical workflow.",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Dr. Sarah Al-Mansoor",
+    "emailLabel": "Work Email",
+    "emailPlaceholder": "sarah@cityhospital.org",
+    "submitButton": "Join Priority Waitlist",
+    "submitting": "Registering...",
+    "successTitle": "You're on the list!",
+    "duplicateTitle": "Already on the list!",
+    "successMessage": "Thank you for joining. We will reach out to {email} as onboarding spots open.",
+    "duplicateNotice": "Welcome back! Your email {email} is already on the priority list.",
+    "errorMessage": "Something went wrong. Please check your details and try again.",
+    "privacyNotice": "We respect clinical privacy. Your information is never sold or shared.",
+    "registerAnother": "Register another clinic or email"
+  },
+  "account": {
+    "title": "Clinician Account",
+    "subtitle": "Authenticated provider session details retrieved directly from our PostgreSQL database.",
+    "emailLabel": "Registered Email",
+    "dateLabel": "Registration Date",
+    "syncNotice": "Your account is synchronized with our local database record upon initial authentication.",
+    "clerkIdLabel": "Provider ID",
+    "statusLabel": "Account Status",
+    "statusActive": "Active Provider"
+  },
+  "directionDemo": {
+    "title": "Bidirectional Text & Date Formatting",
+    "sampleEmailLabel": "Direct Clinical Contact:",
+    "sampleDateLabel": "Intake Scheduled For:",
+    "arrowNext": "Next Step",
+    "arrowBack": "Previous Step"
+  }
+}
