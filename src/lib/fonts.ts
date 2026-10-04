@@ -1,9 +1,10 @@
-import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Plus_Jakarta_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 
-export const inter = Inter({
+export const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-sans",
 });
 
 export const ibmPlexArabic = IBM_Plex_Sans_Arabic({

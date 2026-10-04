@@ -18,6 +18,7 @@ export function Features({ locale = "en" }: FeaturesProps) {
       steppedClass: "lg:translate-y-14",
       glowColor: "from-coral-500/20 to-rose-500/20",
       iconBg: "from-coral-500 to-rose-600 shadow-coral-500/30",
+      // Stethoscope — represents patient intake & clinical conversation
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +30,9 @@ export function Features({ locale = "en" }: FeaturesProps) {
           strokeLinejoin="round"
           className="h-6 w-6 text-white"
         >
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          <path d="M8 9h8" />
-          <path d="M8 13h5" />
+          <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
+          <path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4" />
+          <circle cx="20" cy="10" r="2" />
         </svg>
       ),
     },
@@ -43,6 +44,7 @@ export function Features({ locale = "en" }: FeaturesProps) {
       steppedClass: "lg:translate-y-7",
       glowColor: "from-violet-500/20 to-indigo-500/20",
       iconBg: "from-violet-600 to-indigo-600 shadow-violet-500/30",
+      // Medical clipboard — represents SOAP-structured clinical briefs
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -54,10 +56,10 @@ export function Features({ locale = "en" }: FeaturesProps) {
           strokeLinejoin="round"
           className="h-6 w-6 text-white"
         >
-          <rect width="18" height="18" x="3" y="3" rx="2" />
-          <path d="M7 7h10" />
-          <path d="M7 12h10" />
-          <path d="M7 17h6" />
+          <rect width="14" height="18" x="5" y="4" rx="2" />
+          <path d="M9 2h6a1 1 0 0 1 1 1v1H8V3a1 1 0 0 1 1-1z" />
+          <path d="M9 12h6" />
+          <path d="M12 9v6" />
         </svg>
       ),
     },
@@ -69,6 +71,7 @@ export function Features({ locale = "en" }: FeaturesProps) {
       steppedClass: "lg:translate-y-0",
       glowColor: "from-teal-500/20 to-cyan-500/20",
       iconBg: "from-teal-600 to-cyan-600 shadow-teal-500/30",
+      // Shield with lock — represents encryption, privacy, and compliance
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +84,8 @@ export function Features({ locale = "en" }: FeaturesProps) {
           className="h-6 w-6 text-white"
         >
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-          <path d="m9 12 2 2 4-4" />
+          <rect width="6" height="5" x="9" y="11" rx="1" />
+          <path d="M10 11V9a2 2 0 1 1 4 0v2" />
         </svg>
       ),
     },
